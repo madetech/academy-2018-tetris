@@ -5,8 +5,8 @@ class SetFallingPiece
     @piece_gateway = piece_gateway
   end
 
-  def execute(*)
-    @piece_gateway.falling_piece = Piece.new
+  def execute(piece: :I)
+    @piece_gateway.falling_piece = PieceFactory.create_piece(piece)
 
     {}
   end

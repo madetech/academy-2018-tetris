@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe FallDownNaturally do
   it 'moves the piece down by one row on the board' do
     piece_gateway = spy

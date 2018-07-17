@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 class Piece
-  def initialize(coordinates = [6,37])
+  def initialize(type, coordinates)
+    @type = type
     @coordinates = coordinates
   end
+
   def type
-    :I
+    @type
   end
+
   def coordinates
     @coordinates
   end

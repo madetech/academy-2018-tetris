@@ -6,7 +6,7 @@ describe ViewBoard do
   end
 
   it 'can view a board with a piece' do
-    piece_gateway = double(falling_piece: Piece.new)
+    piece_gateway = double(falling_piece: PieceFactory.create_piece(:I))
 
     view_board = ViewBoard.new(piece_gateway: piece_gateway)
 
@@ -57,7 +57,7 @@ describe ViewBoard do
   end
 
   it 'can display a piece that has fallen one space' do
-    piece_gateway = double(falling_piece: Piece.new([6,36]))
+    piece_gateway = double(falling_piece: Piece.new(:I, [6,36]))
 
     view_board = ViewBoard.new(piece_gateway: piece_gateway)
 
@@ -68,6 +68,57 @@ describe ViewBoard do
         [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+      ]
+    )
+  end
+
+  it 'can view a board with an L piece' do
+    piece_gateway = double(falling_piece: PieceFactory.create_piece(:L))
+
+    view_board = ViewBoard.new(piece_gateway: piece_gateway)
+
+    expect(view_board.execute).to eq(
+      board: [
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, :X, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
