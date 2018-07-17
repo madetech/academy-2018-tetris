@@ -57,7 +57,14 @@ describe ViewBoard do
   end
 
   it 'can display a piece that has fallen one space' do
-    piece_gateway = double(falling_piece: Piece.new(:I, [6,36]))
+    piece_gateway = double(falling_piece: Piece.new(:I, [6,36],
+      [
+        [nil,nil,:X,nil],
+        [nil,nil,:X,nil],
+        [nil,nil,:X,nil],
+        [nil,nil,:X,nil]
+      ]
+      ))
 
     view_board = ViewBoard.new(piece_gateway: piece_gateway)
 
@@ -118,6 +125,63 @@ describe ViewBoard do
         [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, :X, :X, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+      ]
+    )
+  end
+
+  it 'can display an L piece that has fallen one space' do
+    piece_gateway = double('board=': nil, falling_piece: Piece.new(:L, [6,37],
+      [
+        [nil,:X,nil],
+        [nil,:X,nil],
+        [nil,:X,:X]
+      ]
+      ))
+
+    view_board = ViewBoard.new(piece_gateway: piece_gateway)
+
+    expect(view_board.execute({})).to eq(
+      board: [
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, :X, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],

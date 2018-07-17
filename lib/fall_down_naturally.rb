@@ -6,6 +6,17 @@ class FallDownNaturally
   end
 
   def execute(*)
-    @piece_gateway.falling_piece = Piece.new(:I, [6, 36])
+    if @piece_gateway.falling_piece.type == :I
+      coordinates = [6, 36]
+      shape = [
+        [nil,nil,:X,nil],
+        [nil,nil,:X,nil],
+        [nil,nil,:X,nil],
+        [nil,nil,:X,nil]
+      ]
+    else
+      coordinates = [6, 37]
+    end
+    @piece_gateway.falling_piece = Piece.new(@piece_gateway.falling_piece.type, coordinates, shape)
   end
 end

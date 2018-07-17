@@ -10,9 +10,13 @@ class ViewBoard
       {
         board: [[nil] * 10] * 40
       }
-    elsif @piece_gateway.falling_piece.type == :L
+    #Type L has gone down one space
+    elsif @piece_gateway.falling_piece.coordinates == [6, 37] && @piece_gateway.falling_piece.type == :L
+      @piece_gateway.board = [[nil] * 10] * 40
+      #@piece_gateway.transpose_piece([6,37])
       {
         board: [
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil, :X, :X, nil, nil, nil],
@@ -51,10 +55,10 @@ class ViewBoard
           [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
-          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
         ]
       }
+      # Type I has moved down one space
     elsif @piece_gateway.falling_piece.coordinates == [6,36]
       {
         board: [
@@ -100,6 +104,53 @@ class ViewBoard
           [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
         ]
       }
+      # Type L at the beginning
+    elsif @piece_gateway.falling_piece.type == :L
+      {
+        board: [
+          [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, :X, :X, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+        ]
+      }
+      #Type I at the beginning
     else
       {
         board: [
