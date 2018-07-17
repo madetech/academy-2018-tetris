@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe SetFallingPiece do
   it 'responds with empty hash' do
     piece_gateway = spy

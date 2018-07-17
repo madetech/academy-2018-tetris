@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'a game of Tetris' do
   class InMemoryPieceGateway
     def falling_piece
@@ -8,6 +10,8 @@ describe 'a game of Tetris' do
       @falling_piece = falling_piece
     end
   end
+
+  let(:fall_down_naturally) { FallDownNaturally.new(piece_gateway: piece_gateway) }
 
   let(:piece_gateway) { InMemoryPieceGateway.new }
 
@@ -20,7 +24,7 @@ describe 'a game of Tetris' do
   end
 
   it 'can start a game with a falling piece' do
-    set_falling_piece.execute({ piece: :I })
+    set_falling_piece.execute(piece: :I)
 
     response = view_board.execute({})
     board = response[:board]
@@ -32,6 +36,59 @@ describe 'a game of Tetris' do
         [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+      ]
+    )
+  end
+
+  it 'can continue a game by moving a falling piece down' do
+    set_falling_piece.execute(piece: :I)
+
+    fall_down_naturally.execute({})
+    response = view_board.execute({})
+    board = response[:board]
+
+    expect(board).to eq(
+      [
+        [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, :X, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],

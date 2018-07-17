@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class SetFallingPiece
   def initialize(piece_gateway:)
-    @piece_gateway = piece_gateway     
+    @piece_gateway = piece_gateway
   end
 
   def execute(*)
@@ -9,4 +11,3 @@ class SetFallingPiece
     {}
   end
 end
-

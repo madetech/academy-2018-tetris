@@ -1,6 +1,7 @@
 require 'piece'
 require 'view_board'
 require 'set_falling_piece'
+require 'fall_down_naturally'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
