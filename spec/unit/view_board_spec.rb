@@ -1,6 +1,6 @@
 describe ViewBoard do
   it 'can view an empty board' do
-    view_board = ViewBoard.new(piece_gateway: double(falling_piece: nil))
+    view_board = ViewBoard.new(piece_gateway: double(falling_piece: nil, transpose_piece: nil))
 
     expect(view_board.execute).to eq(board: [[nil]*10]*40)
   end
